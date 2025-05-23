@@ -1,11 +1,12 @@
 package com.example.service;
 
-import com.example.model.Cita;
-import com.example.repository.CitaRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.example.model.Cita;
+import com.example.repository.CitaRepository;
 
 @Service
 public class CitaService {
@@ -34,11 +35,15 @@ public class CitaService {
         }
         idGenerateID = sb.toString();
         return idGenerateID;
-    }
-
-    public Cita crearCita(Cita cita) {
+    }    public Cita crearCita(Cita cita) {
         cita.setId(generateIdUUID());
-
+        
+        if (cita.getFechaCita().isBefore(java.time.LocalDate.now())) {
+            cita.setEstado("Rechazada");
+        } else {
+            cita.setEstado("Confirmada");
+        }
+        
         return citaRepository.save(cita);
     }
 
