@@ -4,6 +4,7 @@ Este proyecto implementa el backend para la gestión de citas médicas de la Cl�
 
 ## Estudiante
 - Nombre: Alison Geraldine Valderrama Munar
+- GRUPO_1
 
 ## Diagramas de Arquitectura
 
