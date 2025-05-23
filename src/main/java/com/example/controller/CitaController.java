@@ -17,23 +17,23 @@ public class CitaController {
         return ResponseEntity.ok(citaService.findAll());
     }
 
-    @GetMapping("/correo")
-    public ResponseEntity<?> getCitasByCorreo(@RequestParam String correo) {
+    @GetMapping("/{correo}/correo")
+    public ResponseEntity<?> getCitasByCorreo(@PathVariable  String correo) {
         return ResponseEntity.ok(citaService.obtenerCitasPorCorreo(correo));
     }
 
-    @GetMapping("/estado")
-    public ResponseEntity<?> filtrarCitasPorEstado(@RequestParam String correo,@RequestParam String estado) {
+    @GetMapping("/{correo}/{estado}/filtar")
+    public ResponseEntity<?> filtrarCitasPorEstado(@PathVariable  String correo,@PathVariable  String estado) {
         return ResponseEntity.ok(citaService.filtrarCitasPorEstado(correo, estado));
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<?> crearCita(@RequestBody Cita cita) {
+    public ResponseEntity<?> crearCita(@PathVariable  Cita cita) {
         return ResponseEntity.ok(citaService.crearCita(cita));
     }
 
-    @PostMapping("/cancelar")
-    public ResponseEntity<?> cancelarCita(@RequestParam String id) {
+    @PostMapping("/{id}/cancelar")
+    public ResponseEntity<?> cancelarCita(@PathVariable  String id) {
         return ResponseEntity.ok(citaService.cancelarCita(id));
     }
 

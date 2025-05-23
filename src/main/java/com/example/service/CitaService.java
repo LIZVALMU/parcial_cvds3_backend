@@ -25,7 +25,20 @@ public class CitaService {
         return citaRepository.findByCorreoAndEstado(correo, estado);
     }
 
+    public String generateIdUUID() {
+        String idGenerateID = "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 10; i++) {
+            int randomNum = (int) (Math.random() * 10);
+            sb.append(randomNum);
+        }
+        idGenerateID = sb.toString();
+        return idGenerateID;
+    }
+
     public Cita crearCita(Cita cita) {
+        cita.setId(generateIdUUID());
+
         return citaRepository.save(cita);
     }
 
