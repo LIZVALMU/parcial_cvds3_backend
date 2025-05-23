@@ -71,6 +71,15 @@ Este proyecto implementa el backend para la gestión de citas médicas de la Cl�
 4. Ejecutar `mvn spring-boot:run`
 5. El servidor estará disponible en http://localhost:8080
 
+## Despliegue en Azure 
+![img.png](img.png)
+
+Link de despliegue: [ECI Salud Vital](https://parcial-cvds3-c2bzfehfg4dmbdhk.canadacentral-01.azurewebsites.net)
+
+## Documentación de la API
+
+Link de swagger: [Swagger UI](https://parcial-cvds3-c2bzfehfg4dmbdhk.canadacentral-01.azurewebsites.net/swagger-ui/index.html)
+
 ## Endpoints
 
 ### Citas
