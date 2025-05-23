@@ -16,4 +16,23 @@ public class CitaService {
     public List<Cita> findAll() {
         return citaRepository.findAll();
     }
+
+    public List<Cita> obtenerCitasPorCorreo(String correo) {
+        return citaRepository.findByCorreo(correo);
+    }
+
+    public List<Cita> filtrarCitasPorEstado(String correo, String estado) {
+        return citaRepository.findByCorreoAndEstado(correo, estado);
+    }
+
+    public Cita crearCita(Cita cita) {
+        return citaRepository.save(cita);
+    }
+
+    public Cita cancelarCita(String id) {
+        Cita cita = citaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cita no encontrada"));;
+        cita.setEstado("Cancelada");
+        return citaRepository.save(cita);
+    }
 }
